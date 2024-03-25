@@ -1,0 +1,159 @@
+
+    
+    * {
+    box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  max-height: 600px;
+  
+  background-color: hsla(200,40%,30%,.4);
+  background-image:   
+    url('https://78.media.tumblr.com/cae86e76225a25b17332dfc9cf8b1121/tumblr_p7n8kqHMuD1uy4lhuo1_540.png'), 
+    url('https://78.media.tumblr.com/66445d34fe560351d474af69ef3f2fb0/tumblr_p7n908E1Jb1uy4lhuo1_1280.png'),
+    url('https://78.media.tumblr.com/8cd0a12b7d9d5ba2c7d26f42c25de99f/tumblr_p7n8kqHMuD1uy4lhuo2_1280.png'),
+    url('https://78.media.tumblr.com/5ecb41b654f4e8878f59445b948ede50/tumblr_p7n8on19cV1uy4lhuo1_1280.png'),
+    url('https://78.media.tumblr.com/28bd9a2522fbf8981d680317ccbf4282/tumblr_p7n8kqHMuD1uy4lhuo3_1280.png');
+  background-repeat: repeat-x;
+  background-position: 
+    0 20%,
+    0 100%,
+    0 50%,
+    0 100%,
+    0 0;
+  background-size: 
+    2500px,
+    800px,
+    500px 200px,
+    1000px,
+    400px 260px;
+  animation: 50s para infinite linear;
+  }
+
+@keyframes para {
+  100% {
+    background-position: 
+      -5000px 20%,
+      -800px 95%,
+      500px 50%,
+      1000px 100%,
+      400px 0;
+    }
+  }
+header{
+    position: fixed;
+    min-height: 100px;
+    /* background-color: rgba(50, 50, 200, 0.6); */
+    top: 0;
+    right: 0;
+    left: 0;
+}
+.nav{
+    min-height: 100px;
+    background-color: rgba(71, 71, 120,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.thoigianhientai{
+    position: absolute;
+    
+}
+.thoigianhientai h2 {
+  margin: 0;
+}
+
+#logo1{
+    position: absolute;
+    right: 0;
+    height: 100px;
+    width: 100px;
+    padding: 5px;
+}
+#test{
+    border-style: double;
+    color: rgb(204, 255, 0);
+    position: absolute;
+    text-decoration: none;
+    font-size: 3em;
+    padding: 5px;
+    
+}
+body{
+    margin-top: 110px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#baocaoketxe {
+    border-style: solid;
+    border-color: aliceblue;
+    flex-basis: 70%;
+    min-width: 120px;
+    min-height: 700px;
+    text-align: center;
+    padding: 16px;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+#dieukhien{
+    border-style: solid;
+    border-color: aliceblue;
+    flex-basis: 30%;
+    min-width: 400px;
+    min-height: 700px;
+    text-align: center;
+    padding: 16px;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+#button-grid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+#button-grid .button{
+    /* border-style: solid; */
+    flex-basis: 50%;
+    min-width: 100px;
+    min-height: 100px;
+    text-align: center;
+    padding: 16px;
+}
+
+button {
+    height: 200px;
+    width: 200px;
+    border-radius: 25px;
+  background-color: rgb(255, 0, 0);
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+table{
+    width: 100%;
+    text-align: left;
+    border-style: double;
+    border-color: aliceblue;
+}
+th{
+    font-size: 1.3em;
+    color: aliceblue;
+    border-style: groove;
+    border-color: aliceblue;
+}
+td{
+    font-size: 1.2em;
+    color: aliceblue;
+    border-style: groove;
+    border-color: aliceblue;
+}
+
+

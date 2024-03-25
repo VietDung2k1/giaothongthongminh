@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    * {
+    box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  max-height: 600px;
+  
+  background-color: hsla(200,40%,30%,.4);
+  background-image:   
+    url('https://78.media.tumblr.com/cae86e76225a25b17332dfc9cf8b1121/tumblr_p7n8kqHMuD1uy4lhuo1_540.png'), 
+    url('https://78.media.tumblr.com/66445d34fe560351d474af69ef3f2fb0/tumblr_p7n908E1Jb1uy4lhuo1_1280.png'),
+    url('https://78.media.tumblr.com/8cd0a12b7d9d5ba2c7d26f42c25de99f/tumblr_p7n8kqHMuD1uy4lhuo2_1280.png'),
+    url('https://78.media.tumblr.com/5ecb41b654f4e8878f59445b948ede50/tumblr_p7n8on19cV1uy4lhuo1_1280.png'),
+    url('https://78.media.tumblr.com/28bd9a2522fbf8981d680317ccbf4282/tumblr_p7n8kqHMuD1uy4lhuo3_1280.png');
+  background-repeat: repeat-x;
+  background-position: 
+    0 20%,
+    0 100%,
+    0 50%,
+    0 100%,
+    0 0;
+  background-size: 
+    2500px,
+    800px,
+    500px 200px,
+    1000px,
+    400px 260px;
+  animation: 50s para infinite linear;
+  }
+
+@keyframes para {
+  100% {
+    background-position: 
+      -5000px 20%,
+      -800px 95%,
+      500px 50%,
+      1000px 100%,
+      400px 0;
+    }
+  }
+header{
+    position: fixed;
+    min-height: 100px;
+    /* background-color: rgba(50, 50, 200, 0.6); */
+    top: 0;
+    right: 0;
+    left: 0;
+}
+.nav{
+    min-height: 100px;
+    background-color: rgba(71, 71, 120,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.thoigianhientai{
+    position: absolute;
+    
+}
+.thoigianhientai h2 {
+  margin: 0;
+}
+
+#logo1{
+    position: absolute;
+    right: 0;
+    height: 100px;
+    width: 100px;
+    padding: 5px;
+}
+#test{
+    border-style: double;
+    color: rgb(204, 255, 0);
+    position: absolute;
+    text-decoration: none;
+    font-size: 3em;
+    padding: 5px;
+    
+}
+body{
+    margin-top: 110px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#baocaoketxe {
+    border-style: solid;
+    border-color: aliceblue;
+    flex-basis: 70%;
+    min-width: 120px;
+    min-height: 700px;
+    text-align: center;
+    padding: 16px;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+#dieukhien{
+    border-style: solid;
+    border-color: aliceblue;
+    flex-basis: 30%;
+    min-width: 400px;
+    min-height: 700px;
+    text-align: center;
+    padding: 16px;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+#button-grid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+#button-grid .button{
+    /* border-style: solid; */
+    flex-basis: 50%;
+    min-width: 100px;
+    min-height: 100px;
+    text-align: center;
+    padding: 16px;
+}
+
+button {
+    height: 200px;
+    width: 200px;
+    border-radius: 25px;
+  background-color: rgb(255, 0, 0);
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.inputs{
+    display: block;
+    width: -webkit-fill-available;
+}
+
+table{
+    width: 100%;
+    text-align: left;
+    border-style: double;
+    border-color: aliceblue;
+}
+th{
+    font-size: 1.5em;
+    color: aliceblue;
+    border-style: groove;
+    border-color: aliceblue;
+}
+td{
+    font-size: 1.5em;
+    color: aliceblue;
+    border-style: groove;
+    border-color: aliceblue;
+}
+.custom-input {
+    border: 2px solid #ccc;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;}
+</style>
+<header>
+    <ul class="thoigianhientai" style="list-style: none; padding-left: 5px;">
+        <li><h2 style="color: aliceblue; ">Thời gian hiện tại: <span id = "thoigian"></span></h2></li>
+        <li><h2 style="color: aliceblue; ">Nhiệt độ: <span id = "nhietdo"></span></h2></li>
+        <li><h2 style="color: aliceblue; ">Độ ẩm: <span id = "doam"></span></h2></li>
+      </ul>
+    <img id = "logo1" src="logo.png">
+    <div class="nav">
+        <a id="test" href="https://www.facebook.com/VietDung52Hz" target="_blank">ĐÈN GIAO THÔNG ITS</a>
+    </div>
+</header>
+<body onload="hienthithoigian();kiemtra();fdongbo()" >
+    <div id = "baocaoketxe">
+        <h1 style="color: yellow;">BÁO CÁO KẸT XE</h1>
+        <div>
+            <form method="post" autocomplete="off" name="google-sheet">
+                <top><br><br>
+                   <table style="border:5">	
+                    <tr><td><b>Họ tên người báo cáo: </b></td>
+                       <td><input class="inputs" type="text" name="Full_Name"   required="" /></td>
+                       </tr>              
+                       <tr><td><b>Thời điểm bắt đầu: </b></td>
+                       <td><input class="inputs" type="time" name="Time_Start"   required="" /></td>
+                      </tr>
+                      <tr><td><b>Thời điểm kết thúc: </b></td>
+                      <td><input class="inputs" type="time" name="Time_End"   required="" /></td>
+                      </tr>
+                      <tr><td><b>Lý do: </b></td>
+                      <td><input class="inputs" type="text" name="Reason"   required="" /></td>
+                      </tr>
+                      <tr><td><b>Biện pháp giải quyết : </b></td>
+                        <td><input type="radio"  name="Solution" value="Ưu tiên luồng chính" >Ưu tiên luồng chính<br>
+                       <input type="radio"  name="Solution" value="Ưu tiên luồng phụ"  >Ưu tiên luồng phụ<br>
+                       <input type="radio"  name="Solution" value="Không giải quyết"  >Không giải quyết</td>
+                        </tr>
+                   </table>
+                   <br><br>
+                   <input type="submit" name="submit" value="Submit" class="custom-input"/>
+              </top>
+            </form>
+        </div> 
+        </table>
+    </div>
+    <div id = "dieukhien">
+        <h1 style="color: yellow;">ĐIỀU KHIỂN LUỒNG</h1>
+        <h1 ><span id = "chophepdieukhien"></span></h1>
+        <div id = "button-grid">
+            <div class="button">
+                <button id = "button1" name="button" value="OK" type="button" onclick="stt1()">CẢ HAI LUỒNG ĐIỀU THÔNG THOÁNG</button>  
+            </div>
+            <div class="button">
+                <button id = "button2" name="button" value="OK" type="button" onclick="stt2()">LUỒNG CHÍNH BỊ KẸT XE</button>  
+            </div>
+            <div class="button">
+                <button id = "button3" name="button" value="OK" type="button" onclick="stt3()">LUỒNG PHỤ BỊ KẸT XE</button>  
+            </div>
+            <div class="button">
+                <!-- <input class="button" type="submit" name="submit" value="Submit" style="background-color: darkorange;"/> -->
+                <!-- <button id = "button4" name="button" value="OK" type="button" onclick="baoketxe()" style="background-color: darkorange;">BÁO KẸT XE</button>   -->
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    
+
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbw9aSRRvzoeBzc0GKH6thH5UvbO-2t2MG6qafuu4WioclAsDUqzAZNUIvjLM5mEjYqH9Q/exec'
+            const form = document.forms['google-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("You have successfully submitted."))
+                .catch(error => console.error('Error!', error.message))
+            })
+
+
+    let btn1 = document.getElementById("button1");
+        let btn2 = document.getElementById("button2");
+        let btn3 = document.getElementById("button3");
+        let btn4 = document.getElementById("button4");
+        let bangbaocao = document.getElementById("bang");
+        let trangthai = "0";
+        let dongbo = "0";
+        let stt = 1;
+    function doimaunen(){
+        if (dongbo=="1"){
+            btn1.style.backgroundColor = "green";
+            btn2.style.backgroundColor = "red";
+            btn3.style.backgroundColor = "red";
+        }
+        if (dongbo=="2"){
+            btn1.style.backgroundColor = "red";
+            btn2.style.backgroundColor = "green";
+            btn3.style.backgroundColor = "red";
+        }
+        if (dongbo=="3"){
+            btn1.style.backgroundColor = "red";
+            btn2.style.backgroundColor = "red";
+            btn3.style.backgroundColor = "green";
+        }
+        if (dongbo=="0") {
+            btn1.style.backgroundColor = "red";
+            btn2.style.backgroundColor = "red";
+            btn3.style.backgroundColor = "red";
+        }
+    }
+    function stt1(){  
+    alert("Trạng thái không có luồng nào bị kẹt xe"); 
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var myObj = JSON.parse(this.responseText);
+      console.log(myObj);
+      trangthai = myObj.trangthai;
+      doimaunen();
+    }
+    }; 
+    xhr.open("GET", "/trangthai1", true);
+    xhr.send();     
+    }  
+    function stt2(){
+    alert("Trạng thái luồng chính bị kẹt");
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var myObj = JSON.parse(this.responseText);
+      console.log(myObj);
+      trangthai = myObj.trangthai;
+      doimaunen();
+    }
+    }; 
+    xhr.open("GET", "/trangthai2", true);
+    xhr.send();  
+    }
+    function stt3(){
+    alert("Trạng thái luồng phụ bị kẹt");
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var myObj = JSON.parse(this.responseText);
+      console.log(myObj);
+      trangthai = myObj.trangthai;
+      doimaunen();
+    }
+    }; 
+
+    xhr.open("GET", "/trangthai3", true);
+    xhr.send();  
+    }   
+
+    function baoketxe(){
+        const input = prompt("Nhập vào ghi chú:");
+        // alert(`Your name is ${input}`);
+        const t = new Date();
+        let h = dinhdang2so(t.getHours());
+        let m = dinhdang2so(t.getMinutes());
+        let s = dinhdang2so(t.getSeconds());
+        let d = dinhdang2so(t.getDate());
+        let mm = dinhdang2so(t.getMonth()+1);
+        let y = dinhdang2so(t.getFullYear());
+        bangbaocao.innerHTML = bangbaocao.innerHTML + "<tr><td>"+stt +"</td><td> "+h +":"+m +":"+ s+" " +d+"/"+mm+"/"+ y+"</td><td>"+input+"</td></tr>";
+        stt +=1;
+    }
+
+    function hienthithoigian(){
+        const t = new Date();
+        let h = dinhdang2so(t.getHours());
+        let m = dinhdang2so(t.getMinutes());
+        let s = dinhdang2so(t.getSeconds());
+        document.getElementById("thoigian").innerHTML = h +":" + m +":" +s;
+
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          var myObj = JSON.parse(this.responseText);
+          console.log(myObj);
+          let nhietdo = myObj.nhietdo;
+          let doam = myObj.doam;    
+          document.getElementById("nhietdo").innerHTML = nhietdo +" °C";
+          document.getElementById("doam").innerHTML = doam +" %";      
+        }
+        }; 
+        xhr.open("GET", "/dht11", true);
+        xhr.send(); 
+        setTimeout(hienthithoigian, 10000);
+    }
+    function kiemtra(){
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          var myObj = JSON.parse(this.responseText);
+          console.log(myObj);
+          let chophep = myObj.chophep;   
+          if (chophep=="y"){
+            document.getElementById("chophepdieukhien").innerHTML ="<h3 style=\"color: green;\">CHO PHÉP ĐIỀU KHIỂN</h3>"; 
+            document.getElementById("button1").disabled = false;
+            document.getElementById("button2").disabled = false;
+            document.getElementById("button3").disabled = false;
+          }  else {
+            document.getElementById("chophepdieukhien").innerHTML ="<h3 style=\"color: red;\">KHÔNG CHO PHÉP ĐIỀU KHIỂN</h3>"; 
+            document.getElementById("button1").disabled = true;
+            document.getElementById("button2").disabled = true;
+            document.getElementById("button3").disabled = true;
+          } 
+        }
+        }; 
+        xhr.open("GET", "/chophep", true);
+        xhr.send(); 
+        setTimeout(kiemtra, 1000);
+    }
+    function fdongbo(){
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          var myObj = JSON.parse(this.responseText);
+          console.log(myObj);
+          dongbo = myObj.dongbo;
+          doimaunen();
+        }
+        }; 
+        xhr.open("GET", "/dongbo", true);
+        xhr.send(); 
+        setTimeout(fdongbo, 2000);
+    }
+    function dinhdang2so(x){
+        if (x<10){
+            return x = "0"+x;
+        }
+        return x;
+    }
+</script>
+</html>
